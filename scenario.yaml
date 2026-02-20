@@ -1,4 +1,6 @@
 apiVersion: ai.sap.com/v1alpha1
 kind: Scenario
 metadata:
-  name: demo-scenario
+  name: test-scenario
+spec:
+  description: Test
