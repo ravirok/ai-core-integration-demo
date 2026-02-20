@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: ravi-workflow
+  labels:
+    ai.sap.com/scenario: ravi-test
+spec:
+  entrypoint: main
+  templates:
+    - name: main
+      container:
+        image: alpine
+        command: ["echo"]
+        args: ["hello"]
