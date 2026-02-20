@@ -1,17 +1,14 @@
-apiVersion: ai.sap.com/v1alpha1
-kind: Workflow
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
 metadata:
-  name: demo-workflow
+  name: test-workflow
+  labels:
+    ai.sap.com/scenario: test-scenario
 spec:
-  scenario: demo-scenario
-  template:
-    apiVersion: argoproj.io/v1alpha1
-    kind: WorkflowTemplate
-    spec:
-      entrypoint: main
-      templates:
-        - name: main
-          container:
-            image: busybox
-            command: ["/bin/sh", "-c"]
-            args: ["echo AI Core Integrated Successfully"]
+  entrypoint: main
+  templates:
+    - name: main
+      container:
+        image: alpine
+        command: ["echo"]
+        args: ["Hello World"]
