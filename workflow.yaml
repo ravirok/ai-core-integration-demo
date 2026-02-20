@@ -3,9 +3,15 @@ kind: Workflow
 metadata:
   name: demo-workflow
 spec:
-  entrypoint: main
-  templates:
-    - name: main
-      container:
-        image: busybox
-        command: ["echo", "AI Core Integrated Successfully"]
+  scenario: demo-scenario
+  template:
+    apiVersion: argoproj.io/v1alpha1
+    kind: WorkflowTemplate
+    spec:
+      entrypoint: main
+      templates:
+        - name: main
+          container:
+            image: busybox
+            command: ["/bin/sh", "-c"]
+            args: ["echo AI Core Integrated Successfully"]
